@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Body from "./Body";
 import { toast } from "react-hot-toast"; // Make sure react-hot-toast is installed
 
+const BACK_URL = import.meta.env.VITE_API_URL;
 
 
 const Register = () => {
