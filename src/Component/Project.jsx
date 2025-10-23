@@ -5,6 +5,7 @@ import FooterSection from './FooterSection'
 import Login from './Login'
 import Body from './Body'
 import { useNavigate } from 'react-router-dom'
+const BACK_URL = import.meta.env.VITE_API_URL;
 
 const Project = () => {
     const navigate = useNavigate()
