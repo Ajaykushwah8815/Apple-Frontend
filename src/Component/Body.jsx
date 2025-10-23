@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Nav from "./Nav";
 
+const BACK_URL = import.meta.env.VITE_API_URL;
 
 const NavItem = ({ icon: Icon, text }) => (
     <li>
