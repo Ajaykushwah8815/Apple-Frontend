@@ -4,6 +4,7 @@ import FooterSection from "./FooterSection";
 import { useNavigate } from "react-router-dom";
 import Body from "./Body";
 import toast from "react-hot-toast";
+const BACK_URL = import.meta.env.VITE_API_URL;
 
 const Login = () => {
     const [logout, setlogout] = useState(false)
