@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Body from "./Body";
 import toast, { Toaster } from 'react-hot-toast';
 
+const BACK_URL = import.meta.env.VITE_API_URL;
 
 
 const Resetpassword = () => {
