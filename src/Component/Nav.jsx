@@ -11,6 +11,7 @@ import FooterSection from "./FooterSection";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
+const BACK_URL = import.meta.env.VITE_API_URL;
 
 
 const NavItem = ({ icon: Icon, text }) => (
