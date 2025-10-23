@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-animate {
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 0.2s ease;
+  }
+
+  .bg-animate:hover {
+    background-position: right center;
+  }
+}
