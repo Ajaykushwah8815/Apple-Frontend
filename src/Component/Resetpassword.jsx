@@ -26,7 +26,7 @@ const Resetpassword = () => {
     const handleregister = async (e) => {
 
         try {
-            const res = await fetch("/api/varify_reset_password", {
+            const res = await fetch(`${BACK_URL}/api/varify_reset_password`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
@@ -46,7 +46,7 @@ const Resetpassword = () => {
     const handlereset = async (e) => {
 
         try {
-            const res = await fetch("/api/reset_password_otp", {
+            const res = await fetch(`${BACK_URL}/api/reset_password_otp`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
