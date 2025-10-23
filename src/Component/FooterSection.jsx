@@ -6,6 +6,8 @@ import {
     FooterLinkGroup,
 } from "flowbite-react";
 
+const BACK_URL = import.meta.env.VITE_API_URL;
+
 const FooterSection = () => {
     return (
         <Footer
