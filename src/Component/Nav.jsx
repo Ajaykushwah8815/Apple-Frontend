@@ -35,7 +35,7 @@ const Nav = () => {
 
     const isAuthenticate = async () => {
         try {
-            const res = await fetch("/api/is_Auth", {
+            const res = await fetch(`${BACK_URL}/api/is_Auth`, {
                 method: "POST",
                 credentials: 'include'
             });
@@ -57,7 +57,7 @@ const Nav = () => {
 
     const islogout = async () => {
         try {
-            const res = await fetch("/api/logout", {
+            const res = await fetc(`${BACK_URL}/api/logout`, {
                 method: "POST",
             });
 
