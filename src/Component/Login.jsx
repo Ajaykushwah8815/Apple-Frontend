@@ -25,7 +25,7 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-            const res = await fetch("https://apple-backend-8wfi.onrender.com/api/login", {
+            const res = await fetch(`${BACK_URL}/api/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
