@@ -31,6 +31,8 @@ const Register = () => {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
+                  credentials: "include", // 🔥 allow cookies / CORS with credentials
+
             });
 
             const data = await res.json();
