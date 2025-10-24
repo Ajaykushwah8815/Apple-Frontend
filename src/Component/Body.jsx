@@ -49,7 +49,6 @@ const Body = () => {
         try {
             const res = await fetch(`${BACK_URL}/api/is_Auth`, {
                 method: "POST",
-                credentials: 'include'
             });
 
             const data = await res.json();
