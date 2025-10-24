@@ -24,41 +24,66 @@ const Register = () => {
 
 
 
-    const handleregister = async (e) => {
+    // const handleregister = async (e) => {
 
-        try {
-            const res = await fetch(`${BACK_URL}/api/register`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(form),
+    //     try {
+    //         const res = await fetch(`${BACK_URL}/api/register`, {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" },
+    //             body: JSON.stringify(form),
 
-            });
+    //         });
 
-            const data = await res.json();
+    //         const data = await res.json();
 
-            if (data.success === true) {
-                toast.success(data.message || "Registration successful!");
-                // Reset form after successful registration
-                navigate("/")
-                setForm({ email: "", password: "" });
-            } else {
-                toast.error(data.message || "Registration failed");
-            }
+    //         if (data.success === true) {
+    //             toast.success(data.message || "Registration successful!");
+    //             // Reset form after successful registration
+    //             navigate("/")
+    //             setForm({ email: "", password: "" });
+    //         } else {
+    //             toast.error(data.message || "Registration failed");
+    //         }
 
-            console.log("Server Response:", data);
-        } catch (err) {
-            console.error("Registration error:", err);
-            toast.error("Something went wrong. Please try again.");
-        }
-    };
+    //         console.log("Server Response:", data);
+    //     } catch (err) {
+    //         console.error("Registration error:", err);
+    //         toast.error("Something went wrong. Please try again.");
+    //     }
+    // };
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Login Data:", form);
-        handleregister()
-        setForm({ username: "", useremail: "", userpassword: "" })
-    };
+   const handleRegister = async (e) => {
+  e.preventDefault(); // ✅ prevent page reload
+
+  try {
+    const res = await fetch(`${BACK_URL}/api/register`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include", // ✅ only if your backend expects cookies/auth
+      body: JSON.stringify(form),
+    });
+
+    const data = await res.json();
+    console.log("Server Response:", data);
+
+    if (data.success) {
+      toast.success(data.message || "Registration successful!");
+      // Reset form only after successful registration
+      setForm({ username: "", useremail: "", userpassword: "" });
+      navigate("/"); // redirect after success
+    } else {
+      toast.error(data.message || "Registration failed");
+    }
+  } catch (err) {
+    console.error("Registration error:", err);
+    toast.error("Something went wrong. Please try again.");
+  }
+};
+const handleSubmit = (e) => {
+  handleRegister(e); // ✅ pass the event so we can preventDefault
+};
+
 
     if (!showModal) return null;
 
