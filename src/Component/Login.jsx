@@ -28,6 +28,7 @@ const Login = () => {
             const res = await fetch("https://apple-backend-8wfi.onrender.com/api/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
+                  credentials: "include",
                 body: JSON.stringify(form),
             });
 
