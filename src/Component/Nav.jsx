@@ -60,6 +60,8 @@ const Nav = () => {
         try {
             const res = await fetc(`${BACK_URL}/api/logout`, {
                 method: "POST",
+                  credentials: "include", // 🔥 allow cookies / CORS with credentials
+
             });
 
             const data = await res.json();
