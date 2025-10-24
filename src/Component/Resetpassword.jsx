@@ -31,7 +31,6 @@ const Resetpassword = () => {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
-                  credentials: "include", // 🔥 allow cookies / CORS with credentials
 
             });
 
@@ -53,7 +52,6 @@ const Resetpassword = () => {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
-                  credentials: "include", // 🔥 allow cookies / CORS with credentials
 
             });
 
