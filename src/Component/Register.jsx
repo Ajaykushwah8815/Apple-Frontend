@@ -54,7 +54,6 @@ const Register = () => {
 
 
    const handleRegister = async (e) => {
-  // e.preventDefault(); // ✅ prevent page reload
 
   try {
     const res = await fetch(`${BACK_URL}/api/register`, {
@@ -81,6 +80,8 @@ const Register = () => {
   }
 };
 const handleSubmit = (e) => {
+      e.preventDefault(); // ✅ prevent page reload
+
   handleRegister(e); // ✅ pass the event so we can preventDefault
 };
 
