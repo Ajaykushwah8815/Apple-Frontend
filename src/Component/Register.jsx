@@ -158,7 +158,7 @@ const handleSubmit = (e) => {
 
                         <button
                             type="submit"
-                            onClick={() => handleSubmit()}
+                            onClick={ handleSubmit}
                             className="w-full py-2 mt-4 bg-blue-700 text-white font-semibold rounded-lg hover:bg-blue-800 transition"
                         >
                             Register
