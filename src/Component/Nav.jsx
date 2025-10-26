@@ -58,7 +58,7 @@ const Nav = () => {
 
     const islogout = async () => {
         try {
-            const res = await fetc(`${BACK_URL}/api/logout`, {
+            const res = await fetch(`${BACK_URL}/api/logout`, {
                 method: "POST",
                   credentials: "include", // 🔥 allow cookies / CORS with credentials
 
