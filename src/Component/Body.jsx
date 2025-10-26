@@ -45,24 +45,27 @@ const Body = () => {
     }, []);
 
 
-    const isAuthenticate = async () => {
-        try {
-            const res = await fetch(`${BACK_URL}/api/is_Auth`, {
-                method: "POST",
-            });
+  const isAuthenticate = async () => {
+  try {
+    const res = await fetch(`${BACK_URL}/api/is_Auth`, {
+      method: "POST",
+      credentials: "include", // 🔥 REQUIRED for cookies
+    });
 
-            const data = await res.json();
-            console.log(data);
-            if (data.success === true) {
-                navigate("/myproject")
-            } else {
-                toast.error("Login to Access")
-                navigate("/login")
-            }
-        } catch (err) {
-            console.error("Login error:", err);
-        }
-    };
+    const data = await res.json();
+    console.log(data);
+
+    if (data.success === true) {
+      navigate("/myproject");
+    } else {
+      toast.error("Login to Access");
+      navigate("/login");
+    }
+  } catch (err) {
+    console.error("Auth error:", err);
+  }
+};
+
 
 
     return (
