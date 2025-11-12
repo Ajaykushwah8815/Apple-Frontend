@@ -48,7 +48,9 @@ const Nav = () => {
             if (data.success === true) {
                 setlogin(true)
                 setname(Cookies.get("name"))
+                console.log(Cookies.get("name"))
             } else {
+                console.log("Fail to auth")
 
             }
         } catch (err) {
