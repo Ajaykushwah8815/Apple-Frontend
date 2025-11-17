@@ -45,26 +45,53 @@ const Body = () => {
     }, []);
 
 
-  const isAuthenticate = async () => {
+//   const isAuthenticate = async () => {
+//   try {
+//     const res = await fetch(`${BACK_URL}/api/is_Auth`, {
+//       method: "POST",
+//       credentials: "include", // 🔥 REQUIRED for cookies
+//     });
+
+//     const data = await res.json();
+//     console.log(data);
+
+//     if (data.success === true) {
+//       navigate("/myproject");
+//     } else {
+//       toast.error("Login to Access");
+//       navigate("/login");
+//     }
+//   } catch (err) {
+//     console.error("Auth error:", err);
+//   }
+// };
+    const isAuthenticate = async () => {
   try {
     const res = await fetch(`${BACK_URL}/api/is_Auth`, {
       method: "POST",
-      credentials: "include", // 🔥 REQUIRED for cookies
+      credentials: "include",
     });
 
-    const data = await res.json();
-    console.log(data);
+    const text = await res.text();  // <-- important for debugging
+    console.log("Raw response:", text);
 
-    if (data.success === true) {
-      navigate("/myproject");
-    } else {
-      toast.error("Login to Access");
-      navigate("/login");
+    try {
+      const data = JSON.parse(text);  // Try parsing manually
+      if (data.success === true) {
+        navigate("/myproject");
+      } else {
+        toast.error("Login to Access");
+        navigate("/login");
+      }
+    } catch (e) {
+      console.error("Failed to parse JSON:", e);
+      toast.error("Invalid server response!");
     }
   } catch (err) {
     console.error("Auth error:", err);
   }
 };
+
 
 
 
